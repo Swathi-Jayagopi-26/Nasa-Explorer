@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const DIRECT_NASA_URL = 'https://images-api.nasa.gov/search';
+const BACKEND = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
 
 export default function NasaImageSearch() {
   const [query, setQuery] = useState('');
@@ -26,7 +26,7 @@ export default function NasaImageSearch() {
     try {
       const term = search || getRandomTopic();
       const res = await fetch(
-        `${DIRECT_NASA_URL}?q=${encodeURIComponent(term)}&media_type=image&page=${pageNum}`
+        `${BACKEND}/api/image?term=${encodeURIComponent(term)}&page=${pageNum}`
       );
       if (!res.ok) throw new Error('Failed to fetch NASA images');
       const json = await res.json();
@@ -95,7 +95,7 @@ export default function NasaImageSearch() {
       {error && <p className="error">{error}</p>}
 
       {/* Image Grid */}
-      <div className="grid">
+      <div className="grid" style={{ maxHeight:730, overflow:'auto' }}>
         {images.length > 0 ? (
           images.map((img, i) => (
             <figure key={i}>

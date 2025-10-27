@@ -8,7 +8,7 @@ export default function App(){
     <div className="app-root">
       <header className="app-header">
         <h1>NASA Explorer</h1>
-        <p>Explore APOD, Mars rover photos and Near-Earth Objects</p>
+        <p>Explore APOD, Space images and Near-Earth Objects</p>
       </header>
       <main>
         <section className="layout-row">
