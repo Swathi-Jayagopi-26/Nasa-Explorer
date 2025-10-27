@@ -13,7 +13,7 @@ This is a full React + Node/Express starter project that proxies NASA Open APIs 
    ```
    Create a `.env` file in /backend with:
    ```
-   NASA_API_KEY=YOUR_NASA_API_KEY
+   NASA_API_KEY=YOUR_NASA_API_KEY    
    PORT=4000
    ```
 
