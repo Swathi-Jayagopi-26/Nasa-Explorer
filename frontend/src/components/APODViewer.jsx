@@ -38,12 +38,14 @@ export default function APODViewer(){
         <article>
           <h3>{data.title}</h3>
           <p style={{color:'var(--muted)'}}>{data.date}</p>
+          <div style={{maxHeight:730, overflow:'auto'}}>
           {data.media_type === 'image' ? (
             <img src={data.url} alt={data.title} style={{maxWidth:'100%',borderRadius:8,marginTop:8}} />
           ) : (
             <iframe title="apod-video" src={data.url} width="100%" height="340" style={{borderRadius:8}} />
           )}
           <p style={{color:'var(--muted)',marginTop:8}}>{data.explanation}</p>
+          </div>
         </article>
       )}
     </div>
